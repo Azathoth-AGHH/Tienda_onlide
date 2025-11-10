@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Archivo POM de Maven: define el proyecto, dependencias y configuración de compilación -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- Versión del modelo POM -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Identificación del proyecto -->
+  <groupId>com.tienda</groupId>      <!-- Paquete principal del proyecto -->
+  <artifactId>proyecto-tienda</artifactId> <!-- Nombre del proyecto/artifacto -->
+  <version>1.0-SNAPSHOT</version>   <!-- Versión del proyecto -->
+
+  <!-- Nombre y URL opcionales -->
+  <name>proyecto-tienda</name>
+  <url>http://www.example.com</url>
+
+  <!-- Propiedades del proyecto -->
+  <properties>
+    <!-- Codificación de los archivos fuente -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Versión de Java usada para compilar -->
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+  </properties>
+
+  <!-- Dependencias necesarias para el proyecto -->
+  <dependencies>
+    <!-- Dependencia para trabajar con PDFs usando Apache PDFBox -->
+    <dependency>
+      <groupId>org.apache.pdfbox</groupId>
+      <artifactId>pdfbox</artifactId>
+      <version>2.0.31</version>
+    </dependency>
+
+    <!-- Dependencia para pruebas unitarias con JUnit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope> <!-- Solo se usa para pruebas -->
+    </dependency>
+  </dependencies>
+
+  <!-- Configuración de build y plugins de Maven -->
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- Plugin para limpiar la carpeta target -->
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+
+        <!-- Plugin para manejar recursos como archivos de configuración -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+
+        <!-- Plugin para compilar código Java -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.11.0</version>
+          <configuration>
+            <!-- Forzar uso de Java 21 -->
+            <source>21</source>
+            <target>21</target>
+          </configuration>
+        </plugin>
+
+        <!-- Plugin para ejecutar pruebas unitarias -->
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+
+        <!-- Plugin para generar archivos JAR -->
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+
+        <!-- Plugin para instalar el JAR en el repositorio local -->
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+
+        <!-- Plugin para desplegar el proyecto en repositorios remotos -->
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+
+        <!-- Plugin para generar sitio del proyecto -->
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.7.1</version>
+        </plugin>
+
+        <!-- Plugin para generar reportes de información del proyecto -->
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
